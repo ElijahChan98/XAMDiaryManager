@@ -31,11 +31,13 @@ class NewDiaryViewModel: NSObject, LocationManagerDelegate {
                         return
                     }
                     print(response)
+                    Utilities.showGenericOkAlert(title: "Success", message: "New Diary Entry Created!")
                 case .failure(let error):
                     //handle errors
                     if let error = error {
                         print(error)
                     }
+                    Utilities.showGenericOkAlert(title: "Error", message: "Something went wrong, please try again later")
                 }
             }
         }
