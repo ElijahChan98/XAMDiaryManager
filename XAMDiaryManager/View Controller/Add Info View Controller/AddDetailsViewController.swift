@@ -38,6 +38,7 @@ class AddDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPickers()
+        self.addShadowAndCornerRadius()
     }
 
     private func setupPickers() {

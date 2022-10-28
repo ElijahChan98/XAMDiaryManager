@@ -67,6 +67,7 @@ class NewDiaryViewController: UIViewController, UIPopoverPresentationControllerD
         nextButton.setTitle("Next", for: .normal)
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.backgroundColor = UIColor(named: "brightgreen")
+        nextButton.addShadowAndCornerRadius()
         containerStackView.addArrangedSubview(nextButton)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onNextButtonClick))

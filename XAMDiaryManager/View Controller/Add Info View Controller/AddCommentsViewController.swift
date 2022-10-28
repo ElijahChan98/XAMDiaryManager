@@ -22,6 +22,7 @@ class AddCommentsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsTextField.delegate = self
+        self.addShadowAndCornerRadius()
         // Do any additional setup after loading the view.
     }
     

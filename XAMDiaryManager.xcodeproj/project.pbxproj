@@ -52,6 +52,9 @@
 		D6A70569290C0FF30082F55F /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A70568290C0FF30082F55F /* DiaryEntry.swift */; };
 		D6A7056B290C30A60082F55F /* DiaryEntryDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7056A290C30A60082F55F /* DiaryEntryDummyData.swift */; };
 		D6A7056D290C357B0082F55F /* TagsTextfieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7056C290C357B0082F55F /* TagsTextfieldViewModel.swift */; };
+		D6A7056F290C47910082F55F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7056E290C47910082F55F /* UIView+Extension.swift */; };
+		D6A70571290C47F30082F55F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A70570290C47F30082F55F /* UIViewController+Extension.swift */; };
+		D6A70573290C48790082F55F /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A70572290C48790082F55F /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,9 @@
 		D6A70568290C0FF30082F55F /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		D6A7056A290C30A60082F55F /* DiaryEntryDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryDummyData.swift; sourceTree = "<group>"; };
 		D6A7056C290C357B0082F55F /* TagsTextfieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTextfieldViewModel.swift; sourceTree = "<group>"; };
+		D6A7056E290C47910082F55F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D6A70570290C47F30082F55F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D6A70572290C48790082F55F /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				D60A144B290AAB0500ECE504 /* UITextField+Extension.swift */,
+				D6A7056E290C47910082F55F /* UIView+Extension.swift */,
+				D6A70570290C47F30082F55F /* UIViewController+Extension.swift */,
+				D6A70572290C48790082F55F /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -480,7 +489,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A70573290C48790082F55F /* UIButton+Extension.swift in Sources */,
 				D6A70532290BB5D90082F55F /* AddCommentsViewController.swift in Sources */,
+				D6A7056F290C47910082F55F /* UIView+Extension.swift in Sources */,
 				D6A7053D290BC3800082F55F /* DropdownTextfieldViewController.swift in Sources */,
 				D60A1442290A7F9800ECE504 /* HomeViewController.swift in Sources */,
 				D60A145B290ADA8000ECE504 /* PhotoCollectionViewCell.swift in Sources */,
@@ -497,6 +508,7 @@
 				D6A70550290BFCC40082F55F /* NewDiaryInfoPopupViewController.swift in Sources */,
 				D60A1451290AAB8D00ECE504 /* LocationManager.swift in Sources */,
 				D6A70563290C050C0082F55F /* CodableObjectFactory.swift in Sources */,
+				D6A70571290C47F30082F55F /* UIViewController+Extension.swift in Sources */,
 				D6A70569290C0FF30082F55F /* DiaryEntry.swift in Sources */,
 				D60A144C290AAB0500ECE504 /* UITextField+Extension.swift in Sources */,
 				D6A7054A290BEA6B0082F55F /* TagsTextfieldViewController.swift in Sources */,

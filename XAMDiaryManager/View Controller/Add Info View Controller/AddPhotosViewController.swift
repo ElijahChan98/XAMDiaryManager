@@ -29,6 +29,8 @@ class AddPhotosViewController: UIViewController, PhotoCollectionCellDelegate, Ad
         self.viewModel.delegate = self
         addPhotoButton.setTitleColor(.white, for: .normal)
         addPhotoButton.backgroundColor = UIColor(named: "brightgreen")
+        self.addShadowAndCornerRadius()
+        addPhotoButton.addShadowAndCornerRadius()
         setupCollectionView()
     }
     
