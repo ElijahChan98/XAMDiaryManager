@@ -22,7 +22,7 @@ class NewDiaryViewModel: NSObject, LocationManagerDelegate {
         delegate?.onAddressReceive(address)
     }
     
-    func uploadNewDiary(_ diaryEntry: DiaryEntry) {
+    func uploadNewDiary(_ diaryEntry: DiaryEntry, completion: @escaping ((Bool) -> ())) {
         NewDiaryManager.shared.postDiaryDetails(diaryEntry: diaryEntry) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -31,13 +31,13 @@ class NewDiaryViewModel: NSObject, LocationManagerDelegate {
                         return
                     }
                     print(response)
-                    Utilities.showGenericOkAlert(title: "Success", message: "New Diary Entry Created!")
+                    completion(true)
                 case .failure(let error):
                     //handle errors
                     if let error = error {
                         print(error)
                     }
-                    Utilities.showGenericOkAlert(title: "Error", message: "Something went wrong, please try again later")
+                    completion(false)
                 }
             }
         }

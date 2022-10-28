@@ -84,7 +84,7 @@ class NewDiaryViewController: UIViewController, UIPopoverPresentationControllerD
         self.present(popup, animated: true)
     }
     
-    @objc func onNextButtonClick() {
+    private func constructDiaryEntry() -> DiaryEntry {
         addCommentsViewController.updateViewModel()
         addDetailsViewController.updateViewModel()
         addEventViewController.updateViewModel()
@@ -97,8 +97,27 @@ class NewDiaryViewController: UIViewController, UIPopoverPresentationControllerD
         let event = addEventViewModel.selectedEvent
         
         let entry = DiaryEntry(photos: photos, comments: comments, date: date, area: area, taskCategory: taskCategory, tags: tags, event: event)
+        return entry
+    }
+    
+    @objc func onNextButtonClick() {
+        let indicatorView = UIActivityIndicatorView(style: .medium)
+        nextButton.isEnabled = false
+        let barButton = UIBarButtonItem(customView: indicatorView)
+        self.navigationItem.setRightBarButton(barButton, animated: true)
+        indicatorView.startAnimating()
         
-        viewModel.uploadNewDiary(entry)
+        let entry = constructDiaryEntry()
+        
+        viewModel.uploadNewDiary(entry) { [unowned self] success in
+            indicatorView.stopAnimating()
+            self.nextButton.isEnabled = true
+            if success {
+                Utilities.showGenericOkAlert(title: "Success", message: "New Diary Entry Created!")
+            } else {
+                Utilities.showGenericOkAlert(title: "Error", message: "Something went wrong, please try again later")
+            }
+        }
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
