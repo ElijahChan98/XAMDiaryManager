@@ -25,7 +25,7 @@ class NewDiaryManager{
         var photos: [String: String] = [:]
         for (index, photo) in diaryEntry.photos.enumerated() {
             // Just upload the photo index for testing purposes. Sending the image data is too expensive
-            photos["\(index)"] = DiaryEntry.getPhotoData(photo)
+            photos["\(index)"] = "photo \(index)"
         }
         let parameters: [String: Any] = [
             "comments": diaryEntry.comments,
@@ -51,18 +51,11 @@ class NewDiaryManager{
         var request = URLRequest(url: url)
         request.httpMethod = requestMethod.rawValue
         do {
-            let jsonBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-            request.httpBody = jsonBody
-            print("\(request.httpMethod ?? "") \(request.url)")
-                    let str = String(decoding: request.httpBody!, as: UTF8.self)
-                    print("BODY \n \(str)")
-                    print("HEADERS \n \(request.allHTTPHeaderFields)")
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         } catch let error {
             print(error)
             return
         }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
@@ -79,7 +72,6 @@ class NewDiaryManager{
                 if let data = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                        print(json)
                         if let payload = json as? [String: Any] {
                             if let error: ReqresError = CodableObjectFactory.objectFromPayload(payload) {
                                 completion(.failure(error))
@@ -90,16 +82,8 @@ class NewDiaryManager{
                         }
                     }
                     catch {
-                        do {
-                            let responseJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                            if let responseJSON = responseJSON as? [String: Any] {
-                                print(responseJSON)
-                            }
-                        } catch {
-                            print(error)
-                        }
-                        
-                        
+                        print(String(describing: error))
+                        print(error.localizedDescription)
                     }
                 }
                 else {
