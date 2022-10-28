@@ -17,6 +17,8 @@ struct DiaryEntry {
     var event: String?
     
     static func getPhotoData(_ photo: UIImage) -> String? {
-        return photo.jpegData(compressionQuality: 1)?.base64EncodedString()
+        let imageData = photo.jpegData(compressionQuality: 1)!
+        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+        return strBase64
     }
 }
