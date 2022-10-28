@@ -24,7 +24,7 @@ class NewDiaryManager{
         var urlComponents = URLComponents(string: Constants.BASE_URL + Constants.DIARIES)!
         var photos: [String: String] = [:]
         for (index, photo) in diaryEntry.photos.enumerated() {
-            // Just upload the photo index for testing purposes. Sending the image data is too expensive
+            // Just upload the photo index for testing purposes. Sending the image data is too expensive. Backend will fire "payload too large"
             photos["\(index)"] = "photo \(index)"
         }
         let parameters: [String: Any] = [
